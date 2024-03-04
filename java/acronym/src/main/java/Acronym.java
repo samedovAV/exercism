@@ -1,5 +1,8 @@
 class Acronym {
 
+    private static final String NON_ALPHABETIC_REGEX = "[^a-zA-Z\\s-]";
+    private static final String WORD_SEPARATOR_REGEX = "[\\s-]+";
+
     private String phrase;
 
     Acronym(String phrase) {
@@ -13,7 +16,7 @@ class Acronym {
 
         StringBuilder acronym = new StringBuilder();
 
-        String[] words = phrase.replaceAll("[^a-zA-Z\\s-]", "").split("[\\s-]+");
+        String[] words = phrase.replaceAll(NON_ALPHABETIC_REGEX, "").split(WORD_SEPARATOR_REGEX);
 
         for (String word : words) {
             if (!word.isEmpty()) {
@@ -23,5 +26,4 @@ class Acronym {
 
         return acronym.toString().toUpperCase();
     }
-
 }

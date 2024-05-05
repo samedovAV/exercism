@@ -4,7 +4,7 @@ class LuhnValidator {
         candidate = candidate.replaceAll("\\s", "");
 
         // Check if the candidate consists of a single digit "0"
-        if (candidate.length() == 1 && candidate.equals("0")) {
+        if (candidate.length() == 1 && "0".equals(candidate)) {
             return false;
         }
 
@@ -21,7 +21,9 @@ class LuhnValidator {
 
         for (int i = candidate.length() - 1; i >= 0; i--) {
             int digit = Character.getNumericValue(candidate.charAt(i));
-            if (alternate) digit *= 2;
+            if (alternate) {
+                digit *= 2;
+            }
             sum += digit > 9 ? digit - 9 : digit;
             alternate = !alternate;
         }

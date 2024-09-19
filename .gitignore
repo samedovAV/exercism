@@ -4,6 +4,9 @@
 # Ignore .exercism folder which contain sensitive data
 .exercism
 
+# Exercism Erlang
+_build
+
 # Created by https://www.gitignore.io/api/intellij,vim,node
 
 ### Intellij ###
